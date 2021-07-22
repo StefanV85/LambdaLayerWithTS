@@ -37,35 +37,35 @@ amplify push
 ## 2.3 Create an Lambda Function
 > amplify add function
 
--- Select: Lambda function (serverless function)
--- Answer the following Questions (e.g. Lambda Function Name)
--- Select NodeJS as runtime
--- Select "Hello World" as function template
--- Select "No" for advanced Settings
--- Select "No" for edit local Lambda function now
--- Try out "amplify push" to  push the Lambda Function to your aws account
--- After successfully push, you can test the Lambda function in the aws console
+* Select: Lambda function (serverless function)
+* Answer the following Questions (e.g. Lambda Function Name)
+* Select NodeJS as runtime
+* Select "Hello World" as function template
+* Select "No" for advanced Settings
+* Select "No" for edit local Lambda function now
+* Try out "amplify push" to  push the Lambda Function to your aws account
+* After successfully push, you can test the Lambda function in the aws console
 
 ## 2.4 Create Lambda Layer
 >  amplify add function
 
--- Choose layer name
--- Choose runtime (e.g. NodeJS)
--- Choose which AWS Accounts should have access to this layer (e.g. recommend "Specific AWS Accounts"):
--- Enter your AWS Account ID
+* Choose layer name
+* Choose runtime (e.g. NodeJS)
+* Choose which AWS Accounts should have access to this layer (e.g. recommend "Specific AWS Accounts"):
+* Enter your AWS Account ID
 
 ## 2.5 Reference the new layer to the existing Lambda function
 
 >  amplify update function
 
--- Choose Lambda function (serverless function)
--- Select the existing Lambda Function
--- Select "Lambda layers configuration"
--- Select "yes" to enable Layers for this function
--- select the existing Lambda layer
--- select "no" for edit the local Lambda function now
--- Try out "amplify push" to  push the Lambda Function to your aws account
--- After successfully push, you can see in the aws console, that the Lambda function references to the Lambda layer
+* Choose Lambda function (serverless function)
+* Select the existing Lambda Function
+* Select "Lambda layers configuration"
+* Select "yes" to enable Layers for this function
+* select the existing Lambda layer
+* select "no" for edit the local Lambda function now
+* Try out "amplify push" to  push the Lambda Function to your aws account
+* After successfully push, you can see in the aws console, that the Lambda function references to the Lambda layer
 
 ## 2.6 Swith to Typescript
 ### 2.6.1 Install Typescript Modules
@@ -177,8 +177,8 @@ Create an Build Task, to be able to trigger the transpile via Ctrl+Shift+B manua
   ]
 }
 ```
--- Try out "amplify push" to transpile and push the Lambda code to the cloud
--- After pushing successfully you should see the transpiled javascript code in the aws console
+* Try out "amplify push" to transpile and push the Lambda code to the cloud
+* After pushing successfully you should see the transpiled javascript code in the aws console
 
 ### 2.6.5 Change Layercode to Typescript
 - Create ./amplify/backend/function/**layerName**/opt/**Shared/Logger/Logger.ts**
@@ -235,5 +235,5 @@ exports.handler = async (event) => {
 }
 
 ````
--- Try out "amplify push" to transpile and push the changes to the cloud
--- Test your Lambda Code in the aws console.
+* Try out "amplify push" to transpile and push the changes to the cloud
+* Test your Lambda Code in the aws console.
