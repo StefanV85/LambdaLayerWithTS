@@ -1,7 +1,7 @@
 # Amplify Project with Lambda Function (and Layer) using Typescript
 
 # Description
-This project contains tan amplify project with one lambda function and one lambda layer.
+This project contains an amplify project with one lambda function and one lambda layer.
 The Lambda function and the Lambda Layer implements some hello world code in typescript.
 When you deploy the app, npm scripts are triggered (as part of the amplify lifecycle hooks) and transpile the typescript to javascript.
 
