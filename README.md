@@ -16,7 +16,7 @@ Install Amplify CLI globally
 Clone the Project, Install Dependencies and Deploy the Project
 >git clone https://github.com/StefanV85/LambdaLayerWithTS.git
 cd LambdaLayerWithTS
-amplify init => assign an aws profile for your account
+amplify init => assign an AWS profile for your account
 npm install
 cd ./amplify/backend/function
 npm install
@@ -32,7 +32,7 @@ amplify push
 > amplify init
 
 - Choose the project name
-- Choose your aws profile to link your aws account
+- Choose your AWS profile to link your AWS account
 
 ## 2.3 Create an Lambda Function
 > amplify add function
@@ -43,8 +43,8 @@ amplify push
 * Select "Hello World" as function template
 * Select "No" for advanced Settings
 * Select "No" for edit local Lambda function now
-* Try out "amplify push" to  push the Lambda Function to your aws account
-* After successfully push, you can test the Lambda function in the aws console
+* Try out "amplify push" to  push the Lambda Function to your AWS account
+* After successfully push, you can test the Lambda function in the AWS Management Console
 
 ## 2.4 Create Lambda Layer
 >  amplify add function
@@ -64,8 +64,8 @@ amplify push
 * Select "yes" to enable Layers for this function
 * select the existing Lambda layer
 * select "no" for edit the local Lambda function now
-* Try out "amplify push" to  push the Lambda Function to your aws account
-* After successfully push, you can see in the aws console, that the Lambda function references to the Lambda layer
+* Try out "amplify push" to  push the Lambda Function to your AWS account
+* After successfully push, you can see in the AWS Management Console, that the Lambda function references to the Lambda layer
 
 ## 2.6 Swith to Typescript
 ### 2.6.1 Install Typescript Modules
@@ -178,7 +178,7 @@ Create an Build Task, to be able to trigger the transpile via Ctrl+Shift+B manua
 }
 ```
 * Try out "amplify push" to transpile and push the Lambda code to the cloud
-* After pushing successfully you should see the transpiled javascript code in the aws console
+* After pushing successfully you should see the transpiled javascript code in the AWS Management Console
 
 ### 2.6.5 Change Layercode to Typescript
 - Create ./amplify/backend/function/**layerName**/opt/**Shared/Logger/Logger.ts**
@@ -236,4 +236,4 @@ exports.handler = async (event) => {
 
 ````
 * Try out "amplify push" to transpile and push the changes to the cloud
-* Test your Lambda Code in the aws console.
+* Test your Lambda Code in the AWS Management Console.
