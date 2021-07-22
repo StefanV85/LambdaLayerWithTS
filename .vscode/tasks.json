@@ -1,0 +1,12 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "LambdaFunc1 TypeScript->JavaScript",
+      "type": "npm",
+      "group": "build",
+      "script": "amplify:LambdaFunc1",
+      "problemMatcher": []
+    }
+  ]
+}

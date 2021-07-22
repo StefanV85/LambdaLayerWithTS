@@ -1,0 +1,11 @@
+{
+  "lambdaLayers": [
+    {
+      "type": "ProjectLayer",
+      "resourceName": "lambdalayerwithtsLambdaLayer1",
+      "env": "dev",
+      "version": "Always choose latest version",
+      "isLatestVersionSelected": true
+    }
+  ]
+}

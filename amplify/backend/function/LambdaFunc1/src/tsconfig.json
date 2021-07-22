@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "outDir": ".",
+    "rootDir": ".",
+    "sourceMap": true,
+    "strict": false,
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "paths": {
+      "/opt/Shared/Logger/Logger": [
+        "../../lambdalayerwithtsLambdaLayer1/opt/Shared/Logger/Logger"
+      ]
+    }
+  },
+  "exclude": []
+}
