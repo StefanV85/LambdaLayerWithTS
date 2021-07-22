@@ -1,12 +1,40 @@
 # Amplify Project with Lambda Function (and Layer) using Typescript
 
-## Create an Amplify Project
+# Description
+This project contains tan amplify project with one lambda function and one lambda layer.
+The Lambda function and the Lambda Layer implements some hello world code in typescript.
+When you deploy the app, npm scripts are triggered (as part of the amplify lifecycle hooks) and transpile the typescript to javascript.
+
+Lambda Layer elements are accessible in the lambda function via /opt/.
+Because this folder doesn't exist on your local machine, you need path mapping in the tsconfig.
+
+# 1. Fast Installation
+
+Install Amplify CLI globally
+> npm install -g @aws-amplify/cli
+
+Clone the Project, Install Dependencies and Deploy the Project
+>git clone https://github.com/StefanV85/LambdaLayerWithTS.git
+cd LambdaLayerWithTS
+amplify init => assign an aws profile for your account
+npm install
+cd ./amplify/backend/function
+npm install
+cd ../../..
+amplify push
+
+
+# 2. Step By Step Instruction for this project
+
+## 2.1 Install Amplify CLI globally
+> npm install -g @aws-amplify/cli
+## 2.2 Create an Amplify Project
 > amplify init
 
 - Choose the project name
 - Choose your aws profile to link your aws account
 
-## Create an Lambda Function
+## 2.3 Create an Lambda Function
 > amplify add function
 
 -- Select: Lambda function (serverless function)
@@ -18,7 +46,7 @@
 -- Try out "amplify push" to  push the Lambda Function to your aws account
 -- After successfully push, you can test the Lambda function in the aws console
 
-## Create Lambda Layer
+## 2.4 Create Lambda Layer
 >  amplify add function
 
 -- Choose layer name
@@ -26,7 +54,7 @@
 -- Choose which AWS Accounts should have access to this layer (e.g. recommend "Specific AWS Accounts"):
 -- Enter your AWS Account ID
 
-## Reference the new layer to the existing Lambda function
+## 2.5 Reference the new layer to the existing Lambda function
 
 >  amplify update function
 
@@ -39,8 +67,8 @@
 -- Try out "amplify push" to  push the Lambda Function to your aws account
 -- After successfully push, you can see in the aws console, that the Lambda function references to the Lambda layer
 
-## Swith to Typescript
-### Install Typescript Modules
+## 2.6 Swith to Typescript
+### 2.6.1 Install Typescript Modules
 - Typescript should be handled in ./amplify/backend/function (one level over the function itself)
 ````
 - cd ./amplify/backend/function
@@ -49,8 +77,8 @@
 - npm install @types/node --save-dev
 ````
 
-### Change Lambda Code to Typescript
-- Rename ./amplify/backend/function/< LambdaName>/src/index.js  to "index.ts"
+### 2.6.2 Change Lambda Code to Typescript
+- Rename ./amplify/backend/function/**LambdaName**/src/index.js  to "index.ts"
 - Enhance code with typescript hello world
 ```typescript
 {
@@ -66,7 +94,7 @@
     }
 }
 ```
-- create ./amplify/backend/function/<LambdaName>/src/tsconfig.json
+- create ./amplify/backend/function/**LambdaName**/src/tsconfig.json
 ```json
 {
     "compilerOptions": {
@@ -86,7 +114,7 @@
 }
 ```
 
-### Introduce Typescript transpiling script
+### 2.6.3 Introduce Typescript transpiling script
 - Add package.json on root level of the project (if doesn't exist yet)
 - npm init
 - Add a Script for your Lambda Function: 
@@ -99,7 +127,6 @@
   "description": "Amplify Project with Lambda Functions/Layers using Typescript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "amplify:LambdaFunc1": "cd amplify/backend/function && npm run tscLambdaFunc1"
   },
   "repository": {
@@ -122,7 +149,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "tscLambdaFunc1": "tsc -p ./LambdaFunc1/src/"
   },
   "author": "",
@@ -134,7 +160,7 @@
   }
 }
 ```
-### Optional: VSCode Build Task
+### 2.6.4 Optional: VSCode Build Task
 Create an Build Task, to be able to trigger the transpile via Ctrl+Shift+B manually too
 - create ./.vscode/tasks.json
 ```json
@@ -154,8 +180,8 @@ Create an Build Task, to be able to trigger the transpile via Ctrl+Shift+B manua
 -- Try out "amplify push" to transpile and push the Lambda code to the cloud
 -- After pushing successfully you should see the transpiled javascript code in the aws console
 
-### Change Layercode to Typescript
-- Create ./amplify/backend/function/< layerName>/opt/**Shared/Logger/Logger.ts**
+### 2.6.5 Change Layercode to Typescript
+- Create ./amplify/backend/function/**layerName**/opt/**Shared/Logger/Logger.ts**
 ````typescript
 export class Logger {
   log(message: string) {
@@ -164,8 +190,10 @@ export class Logger {
 }
 ````
 
-### Import layer code in the function code
-- Configure Path Mapping in ./amplify/backend/function/LambdaFunc1/src/tsconfig.ts
+### 2.6.6 Import layer code in the function code
+In the Cloud, the layer code is accessable in the path /opt/
+Because /opt/ doesn't exist locally, we introduce path mapping in tsconfig
+
 ````json
 {
   "compilerOptions": {
@@ -187,7 +215,10 @@ export class Logger {
   "exclude": []
 }
 ````
-- Change ./amplify/backend/function/< LambdaName>/src/index.ts
+
+**Remark** Pathmapping in tsconfig is sometime not considerred immediatly by the IDE. Maybe you have to restart your IDE.
+
+### 2.6.7 Change ./amplify/backend/function/< LambdaName>/src/index.ts
 ``` typescript
 // @ts-ignore
 import { Logger } from '/opt/Shared/Logger/Logger'

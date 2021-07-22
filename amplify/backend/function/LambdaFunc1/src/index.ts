@@ -2,7 +2,7 @@
 import { Logger } from '/opt/Shared/Logger/Logger'
 
 exports.handler = async (event) => {
-  let message: string = 'Hello, World2!'
+  let message: string = 'Hello, World3!'
   Logger.log(message)
 
   const response = {

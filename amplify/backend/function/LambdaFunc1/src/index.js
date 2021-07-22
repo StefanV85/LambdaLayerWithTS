@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // @ts-ignore
 const Logger_1 = require("/opt/Shared/Logger/Logger");
 exports.handler = (event) => __awaiter(void 0, void 0, void 0, function* () {
-    let message = 'Hello, World2!';
+    let message = 'Hello, World3!';
     Logger_1.Logger.log(message);
     const response = {
         statusCode: 200,
