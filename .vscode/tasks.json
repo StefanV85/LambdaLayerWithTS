@@ -7,6 +7,13 @@
       "group": "build",
       "script": "amplify:LambdaFunc1",
       "problemMatcher": []
+    },
+    {
+      "label": "LambdaLayer TypeScript->JavaScript",
+      "type": "npm",
+      "group": "build",
+      "script": "amplify:lambdalayerwithtsLambdaLayer1",
+      "problemMatcher": []
     }
   ]
 }

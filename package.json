@@ -4,7 +4,8 @@
   "description": "- amplify init\r -- Choose the project name\r -- Choose your aws profile to link your aws account",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "amplify:LambdaFunc1": "cd amplify/backend/function && npm run tscLambdaFunc1"
+    "amplify:LambdaFunc1": "cd amplify/backend/function && npm run tscLambdaFunc1",
+    "amplify:lambdalayerwithtsLambdaLayer1": "cd amplify/backend/function && npm run tsclambdalayerwithtsLambdaLayer1"
   },
   "repository": {
     "type": "git",
