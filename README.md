@@ -70,6 +70,8 @@ Clone the Project, Install Dependencies and Deploy the Project
 ## 2.6 Switch to Typescript
 ### 2.6.1 Install Typescript Modules
 - Typescript should be handled in ./amplify/backend/function (one level over the function itself)
+- The fact, that typescript is one layer over the specific lambdafunction folders, it's not necassary to install typescript as devDependency on each Lambda Function.
+  Additionally: Amplify uploads all dependencies to the cloud. Therefore you should be carefully with devDependencies inside the lambdafunction folders, because it's increase the deployment time.
 ````
 - cd ./amplify/backend/function
 - npm init
